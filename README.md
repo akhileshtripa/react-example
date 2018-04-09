@@ -9,7 +9,6 @@ Simple starter kit to get started with [React]. [Webpack], [Babel] and [Jest] ar
 	- [Installation](#installation)
 	- [Development](#development)
 	- [Testing](#testing)
-	- [Production](#production)
 - [Documentation](#documentation)
 	- [Config](#config)
 	- [JavaScript](#javascript)
@@ -27,7 +26,7 @@ Simple starter kit to get started with [React]. [Webpack], [Babel] and [Jest] ar
 [Download] this repo and extract it to some folder, say `my-app`.
 
 ```bash
-cd my-app
+cd react-example
 ```
 
 ### Installation
@@ -36,6 +35,16 @@ Run this to install the dependencies:
 
 ```bash
 npm install
+> uglifyjs-webpack-plugin@0.4.6 postinstall D:\react-example\node_modules\uglify                                                                                                                js-webpack-plugin
+> node lib/post_install.js
+
+npm notice created a lockfile as package-lock.json. You should commit this file.
+npm WARN ajv-keywords@3.1.0 requires a peer of ajv@^6.0.0 but none is installed.                                                                                                                 You must install peer dependencies yourself.
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@1.1.3 (node_modules\fse                                                                                                                vents):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@                                                                                                                1.1.3: wanted {"os":"darwin","arch":"any"} (current: {"os":"win32","arch":"x64"}                                                                                                                )
+
+added 1065 packages in 366.679s
+
 ```
 
 Installed packages will be placed inside the `node_modules` folder.
@@ -59,84 +68,3 @@ npm test
 ```
 
 Coverage files will be placed inside the `coverage` folder.
-
-### Production
-
-Run this to build and optimize your app for production:
-
-```bash
-npm run build
-```
-
-Compiled files will be placed inside the `build` folder.
-
-
-## Documentation
-
-This is the initial directory structure:
-
-```
-my-app
-├── .gitignore
-├── package.json
-├── README.md
-├── config
-│   └── jest.js
-│   └── mock.js
-│   └── webpack.js
-└── src
-    └── App.css
-    └── App.js
-    └── App.test.js
-    └── index.css
-    └── index.html
-    └── index.js
-    └── logo.svg
-```
-
-### Config
-
-Webpack config is in `config/webpack.js`, Babel config is inside `package.json` under `"babel"` key and Jest config is in `config/jest.js`. Webpack and Jest config is kept minimal to make it easier to understand and customize them.
-
-### JavaScript
-
-The main entry point for your app is `src/index.js`. `js` files are loaded using `babel-loader` with `react-app` preset. This allows you to use ES6 and JSX syntax. Output will be placed inside `build/js` folder.
-
-### CSS
-
-`css` files are loaded using `css-loader` and separated from `js` files using `extract-text-webpack-plugin`. Output will be placed inside `build/css` folder.
-
-### HTML
-
-`src/index.html` file is processed using `html-webpack-plugin`. Output will be placed in `build/index.html` file. Paths to compiled `js` and `css` files will be automatically injected into this file.
-
-### Images and Fonts
-
-Images and font files are loaded using `file-loader`. They will be placed inside `build/img` and `build/fonts` folders.
-
-
-## Advanced
-
-### Sass
-
-To use [Sass], install these packages:
-
-```bash
-npm install sass-loader node-sass --save-dev
-```
-
-And add `sass-loader` to `config.module.rules` array in `config/webpack.js`:
-
-```js
-{
-  test: /\.scss$/,
-  loader: styles.extract(['css-loader', 'sass-loader']),
-},
-```
-
-[Download]: https://github.com/react-example/react-example/archive/master.zip
-[React]: https://facebook.github.io/react/
-[Webpack]: https://webpack.js.org/
-[Babel]: https://babeljs.io/
-[Jest]: https://facebook.github.io/jest/
-[Sass]: http://sass-lang.com/
